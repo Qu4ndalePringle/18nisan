@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Geri Sayım</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    h1 {
+      margin-bottom: 40px;
+    }
+    .countdown {
+      font-size: 48px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .box {
+      background-color: #111;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+    }
+    .label {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>18 Nisan 2025, saat 16:00'ya kalan süre</h1>
+<div class="countdown">
+  <div class="box"><div id="days">0</div><div class="label">gün</div></div>
+  <div class="box"><div id="hours">0</div><div class="label">saat</div></div>
+  <div class="box"><div id="minutes">0</div><div class="label">dakika</div></div>
+  <div class="box"><div id="seconds">0</div><div class="label">saniye</div></div>
+</div>
+
+<script>
+  const countdown = () => {
+    const now = new Date();
+    const target = new Date('2025-04-18T16:00:00'); // Hedef zaman
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.body.innerHTML = "<h1>Geri sayım bitti!</h1>";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  };
+
+  setInterval(countdown, 1000);
+</script>
+
+</body>
+</html>
