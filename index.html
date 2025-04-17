@@ -35,7 +35,7 @@
 </head>
 <body>
 
-<h1>18 Nisan 2025, saat 16:00'ya kalan süre</h1>
+<h1>18 Nisan 2025'ya kalan süre</h1>
 <div class="countdown">
   <div class="box"><div id="days">0</div><div class="label">gün</div></div>
   <div class="box"><div id="hours">0</div><div class="label">saat</div></div>
@@ -46,7 +46,7 @@
 <script>
   const countdown = () => {
     const now = new Date();
-    const target = new Date('2025-04-18T16:00:00'); // Hedef zaman
+    const target = new Date('2025-04-18T00:00'); // Hedef zaman
     const diff = target - now;
 
     if (diff <= 0) {
